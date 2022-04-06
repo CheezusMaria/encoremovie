@@ -1,16 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
+// import HomeView from "../views/HomeView.vue";
 import loginView from "../views/loginView.vue";
 import registerView from "../views/registerView.vue";
+import homeSlider from "../components/homeSlider.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "home",
-    component: HomeView,
+    component: homeSlider,
+  },
+  {
+    path: "/slider",
+    name: "slider",
+    component: homeSlider,
   },
   {
     path: "/login",
