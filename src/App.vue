@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <hedaer-comp></hedaer-comp>
     <router-view />
+    <footer-comp></footer-comp>
   </div>
 </template>
-
+<script>
+import footerComp from "./components/footerComp.vue";
+import hedaerComp from "./components/headerComp.vue";
+export default {
+  components: {
+    footerComp,
+    hedaerComp,
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
