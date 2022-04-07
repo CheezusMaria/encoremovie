@@ -2,6 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import AppButton from "./components/appButton.vue";
+Vue.component("app-button", AppButton);
 
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 

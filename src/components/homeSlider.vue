@@ -6,13 +6,14 @@
           <div class="gradient">
             <div class="container">
               <div class="content">
-                <!-- <app-button
-                                    type="link"
-                                    linkTo="#"
-                                    :addClass="['hello','there']"
-                                >
-                                    See review
-                                </app-button> -->
+                <app-button
+                  type="link"
+                  linkTo="#Whatever"
+                  :addClass="['hello', 'there']"
+                  :overWstyle="{ color: 'yellow' }"
+                  :action="demoTrigger"
+                  >Deneme</app-button
+                >
                 <div class="item">
                   {{ slide.title }}
                 </div>
@@ -58,6 +59,12 @@ export default {
   components: {
     Slide,
     Carousel,
+  },
+
+  methods: {
+    demoTrigger() {
+      console.log("demo button works");
+    },
   },
 };
 </script>
