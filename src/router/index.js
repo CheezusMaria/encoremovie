@@ -3,7 +3,8 @@ import VueRouter from "vue-router";
 // import HomeView from "../views/HomeView.vue";
 import loginView from "../views/loginView.vue";
 import registerView from "../views/registerView.vue";
-import homeSlider from "../components/homeSlider.vue";
+// import homeSlider from "../components/homeSlider.vue";
+import indexComp from "../components/indexComp.vue";
 
 Vue.use(VueRouter);
 
@@ -11,13 +12,9 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: homeSlider,
+    component: indexComp,
   },
-  {
-    path: "/slider",
-    name: "slider",
-    component: homeSlider,
-  },
+
   {
     path: "/login",
     name: "login",
@@ -41,6 +38,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  mode: "history",
 });
 
 export default router;

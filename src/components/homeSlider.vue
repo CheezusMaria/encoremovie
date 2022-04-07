@@ -1,19 +1,12 @@
 <template>
   <div>
-    <carousel :per-page="1">
+    <carousel :autoplay="true" easing="linear" speed="300" :per-page="1">
       <slide v-for="(slide, index) in slides" :key="index">
         <div class="slider_bck" :style="{ background: `url(${slide.bck})` }">
           <div class="gradient">
             <div class="container">
               <div class="content">
-                <app-button
-                  type="link"
-                  linkTo="#Whatever"
-                  :addClass="['hello', 'there']"
-                  :overWstyle="{ color: 'yellow' }"
-                  :action="demoTrigger"
-                  >Deneme</app-button
-                >
+                <app-button type="link" linkTo="/#">See Review 2</app-button>
                 <div class="item">
                   {{ slide.title }}
                 </div>
@@ -56,15 +49,14 @@ export default {
       ],
     };
   },
-  components: {
-    Slide,
-    Carousel,
-  },
-
   methods: {
     demoTrigger() {
       console.log("demo button works");
     },
+  },
+  components: {
+    Slide,
+    Carousel,
   },
 };
 </script>
