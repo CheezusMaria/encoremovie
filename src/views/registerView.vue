@@ -17,10 +17,9 @@
               </div>
               <input
                 type="text"
-                name=""
                 class="form-control input_user"
-                value=""
                 placeholder="username"
+                v-model="user.email"
               />
             </div>
             <div class="input-group mb-2">
@@ -31,10 +30,9 @@
               </div>
               <input
                 type="password"
-                name=""
                 class="form-control input_pass"
-                value=""
                 placeholder="password"
+                v-model="user.password"
               />
             </div>
             <div class="form-group">
@@ -52,8 +50,13 @@
               </div>
             </div>
             <div class="d-flex justify-content-center mt-3 login_container">
-              <button type="button" name="button" class="btn login_btn">
-                Register
+              <button
+                @click="onSubmit"
+                type="button"
+                name="button"
+                class="btn login_btn"
+              >
+                Register !
               </button>
             </div>
           </form>
@@ -74,6 +77,37 @@
     </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      user: {
+        email: null,
+        password: null,
+      },
+      isUser: false,
+    };
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.user);
+      axios
+        .post(
+          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCI_VmJl5QEh7kYHcI7mFWtoJ8CzsK8r3A",
+          {
+            email: this.user.email,
+            password: this.user.password,
+            returnSecureToken: true,
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        });
+    },
+  },
+};
+</script>
 <style>
 body,
 html {

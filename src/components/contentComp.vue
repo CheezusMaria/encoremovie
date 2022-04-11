@@ -16,8 +16,9 @@
             type="link"
             linkTo="#somethingelse"
             :addClass="['small_button']"
+            @click="seeReview"
           >
-            See Review
+            See Review A
           </app-button>
         </md-card-actions>
       </md-card>
@@ -31,8 +32,18 @@ import posts from "../assets/posts.js";
 export default {
   data() {
     return {
+      isAuthed: false,
       posts,
     };
+  },
+
+  methods: {
+    seeReview() {
+      if (this.isAuthed == false) console.log("üyelik girişi yapın");
+      else {
+        console.log("content");
+      }
+    },
   },
 };
 </script>

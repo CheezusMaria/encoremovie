@@ -2,6 +2,7 @@
 import Vue from "vue";
 import router from "../router/index";
 import Vuex from "vuex";
+import axios from "axios";
 Vue.use(Vuex);
 
 const FbAuth = "https://identitytoolkit.googleapis.com/v1";
@@ -32,6 +33,7 @@ export default new Vuex.Store({
     },
     authFailed(state, type) {
       if (type === "reset") {
+        state.authFailed = false;
       } else {
         state.authFailed = true;
       }
