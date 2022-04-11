@@ -1,6 +1,6 @@
 <template>
   <div>
-    <carousel :autoplay="true" easing="linear" speed="300" :per-page="1">
+    <carousel :autoplay="true" easing="linear" :per-page="1">
       <slide v-for="(slide, index) in slides" :key="index">
         <div class="slider_bck" :style="{ background: `url(${slide.bck})` }">
           <div class="gradient">

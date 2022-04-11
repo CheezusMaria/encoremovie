@@ -3,13 +3,25 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import AppButton from "./components/appButton.vue";
+import VueResource from "vue-resource";
 Vue.component("app-button", AppButton);
-
+Vue.use(VueResource);
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
 import { BootstrapVueIcons } from "bootstrap-vue";
 
 Vue.use(BootstrapVueIcons);
+
+import { ValidationProvider, ValidationObserver } from "vee-validate";
+Vue.component("ValidationProvider", ValidationProvider);
+Vue.component("ValidationObserver", ValidationObserver);
+import { RuleInstaller } from "@/helpers/validation_rule";
+RuleInstaller();
+
+// import Vuelidate from "vuelidate";
+// Vue.use(Vuelidate);
+
+// Register it globally
 
 import { MdCard } from "vue-material/dist/components";
 import "vue-material/dist/vue-material.min.css";
@@ -45,6 +57,7 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
+Vue.http.options.root = "";
 
 new Vue({
   router,

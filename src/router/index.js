@@ -5,6 +5,7 @@ import loginView from "../views/loginView.vue";
 import registerView from "../views/registerView.vue";
 // import homeSlider from "../components/homeSlider.vue";
 import indexComp from "../components/indexComp.vue";
+import login2View from "../views/login2View";
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: loginView,
+  },
+  {
+    path: "/login2",
+    name: "login2",
+    component: login2View,
   },
   {
     path: "/register",
