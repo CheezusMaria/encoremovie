@@ -4,7 +4,7 @@
       <div class="user_card deneme">
         <div class="d-flex justify-content-center">
           <div class="brand_logo_container">
-            <img src="../assets/encore.jpg" class="brand_logo" alt="Logo" />
+            <img src="@/assets/encore.jpg" class="brand_logo" alt="Logo" />
           </div>
         </div>
         <div class="d-flex justify-content-center form_container">

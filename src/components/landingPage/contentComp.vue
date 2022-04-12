@@ -3,7 +3,7 @@
     <div class="home_container">
       <md-card v-for="(post, index) in posts" :key="index">
         <md-card-media md-ratio="16:9">
-          <img :src="require(`../assets/${post.img}`)" alt="" />
+          <img :src="require(`@/assets/${post.img}`)" alt="" />
         </md-card-media>
         <md-card-header>
           <h2 class="title">{{ posts.title }}</h2>
@@ -14,7 +14,7 @@
         <md-card-actions>
           <app-button
             type="link"
-            linkTo="#somethingelse"
+            linkTo="/reviewmovie"
             :addClass="['small_button']"
             @click="seeReview"
           >
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import posts from "../assets/posts.js";
+import posts from "@/assets/posts.js";
 
 export default {
   data() {

@@ -1,13 +1,30 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "@/store/index";
 // import HomeView from "../views/HomeView.vue";
-import loginView from "../views/loginView.vue";
-import registerView from "../views/registerView.vue";
+import loginView from "@/components/Login/viewComp.vue";
+import registerView from "@/components/Signin/registerView.vue";
 // import homeSlider from "../components/homeSlider.vue";
-import indexComp from "../components/indexComp.vue";
-import login2View from "../views/login2View";
+import indexComp from "@/components/indexComp.vue";
+import reviewMovie from "@/components/content/reviewMovie.vue";
+
+import movieContent from "@/components/movieContent.vue";
+import dashBoard from "@/components/dashboard/dasboardComp.vue";
+import addPosts from "@/components/dashboard/addPosts.vue";
+import listPosts from "@/components/dashboard/listPosts.vue";
+import welcomeComp from "@/components/dashboard/welcomeComp.vue";
 
 Vue.use(VueRouter);
+
+const authGuard = {
+  beforeEach: (to, from, next) => {
+    if (store.state.token) {
+      next();
+    } else {
+      next("/login");
+    }
+  },
+};
 
 const routes = [
   {
@@ -15,21 +32,47 @@ const routes = [
     name: "home",
     component: indexComp,
   },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: dashBoard,
+    children: [
+      {
+        path: "/",
+        component: welcomeComp,
+      },
+      {
+        path: "addPost",
+        component: addPosts,
+      },
+      {
+        path: "managePost",
+        component: listPosts,
+      },
+    ],
+    ...authGuard,
+  },
+  {
+    path: "/reviewmovie",
+    name: "reviewmovie",
+    component: reviewMovie,
+  },
 
   {
     path: "/login",
     name: "login",
     component: loginView,
   },
-  {
-    path: "/login2",
-    name: "login2",
-    component: login2View,
-  },
+
   {
     path: "/register",
     name: "register",
     component: registerView,
+  },
+  {
+    path: "/moviecontent",
+    name: "moviecontent",
+    component: movieContent,
   },
   // {
   //   path: "/about",

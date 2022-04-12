@@ -11,6 +11,8 @@ import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { BootstrapVueIcons } from "bootstrap-vue";
 
 Vue.use(BootstrapVueIcons);
+import wysiwyg from "vue-wysiwyg";
+Vue.use(wysiwyg, {});
 
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 Vue.component("ValidationProvider", ValidationProvider);
@@ -23,11 +25,19 @@ RuleInstaller();
 
 // Register it globally
 
-import { MdCard } from "vue-material/dist/components";
+import {
+  MdCard,
+  MdButton,
+  MdDialog,
+  MdContent,
+} from "vue-material/dist/components";
 import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default.css";
 
 Vue.use(MdCard);
+Vue.use(MdButton);
+Vue.use(MdDialog);
+Vue.use(MdContent);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -57,10 +67,9 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
-Vue.http.options.root = "";
-
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
+(Vue.http.options.root = "https://authuserdemo-default-rtdb.firebaseio.com/"),
+  new Vue({
+    router,
+    store,
+    render: (h) => h(App),
+  }).$mount("#app");

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import homeSlider from "./homeSlider.vue";
-import contentComp from "./contentComp.vue";
+import homeSlider from "./landingPage/homeSlider.vue";
+import contentComp from "./landingPage/contentComp.vue";
 export default {
   components: {
     homeSlider,

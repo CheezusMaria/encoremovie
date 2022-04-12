@@ -21,10 +21,10 @@
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
-import SlideOne from "../assets/1.jpg";
-import SlideTwo from "../assets/2.jpg";
-import SlideThree from "../assets/3.jpg";
-import SlideFour from "../assets/3.jpg";
+import SlideOne from "@/assets/1.jpg";
+import SlideTwo from "@/assets/2.jpg";
+import SlideThree from "@/assets/3.jpg";
+import SlideFour from "@/assets/3.jpg";
 
 export default {
   data() {

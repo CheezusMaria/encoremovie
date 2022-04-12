@@ -15,6 +15,7 @@ export default new Vuex.Store({
     token: null,
     refresh: null,
     authFailed: false,
+    addPost: false,
   },
   getters: {
     isAuth(state) {
@@ -23,11 +24,26 @@ export default new Vuex.Store({
       }
       return false;
     },
+    addPostStatus(state) {
+      return state.addPost;
+    },
   },
   mutations: {
+    addingPost(state) {
+      state.addPost = true;
+    },
     authUser(state, authData) {
       state.token = authData.idToken;
+
       if (authData.type === "signin") {
+        router.push("/dashboard");
+      }
+    },
+
+    logoutUser(state, token) {
+      state.token = null;
+      localStorage.removeItem("token");
+      if (state.token == null) {
         router.push("/");
       }
     },
@@ -54,6 +70,14 @@ export default new Vuex.Store({
         })
         .catch((error) => {
           commit("authFailed");
+        });
+    },
+    addPost({ commit, state }, payload) {
+      Vue.http
+        .post(`posts.json?auth=${state.token}`, payload)
+        .then((response) => response.json())
+        .then((response) => {
+          console.log("task is added");
         });
     },
   },

@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <header-comp></header-comp>
-    <router-view />
-    <footer-comp></footer-comp>
+    <base-view></base-view>
   </div>
 </template>
 <script>
-import footerComp from "./components/footerComp.vue";
-import headerComp from "./components/headerComp.vue";
-
+import baseView from "@/components/Base/viewComp.vue";
 export default {
   components: {
-    footerComp,
-    headerComp,
+    baseView,
   },
 };
 </script>
