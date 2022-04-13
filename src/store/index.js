@@ -72,13 +72,15 @@ export default new Vuex.Store({
           commit("authFailed");
         });
     },
-    addPost({ commit, state }, payload) {
-      Vue.http
-        .post(`posts.json?auth=${state.token}`, payload)
-        .then((response) => response.json())
-        .then((response) => {
-          console.log("task is added");
-        });
+
+    // async , await ile revize edilecek
+    async addPost({ commit, state }, payload) {
+      let response = await Vue.http.post(
+        `posts.json?auth=${state.token}`,
+        payload
+      );
+      console.log("task is added");
+      return response.json();
     },
   },
 });

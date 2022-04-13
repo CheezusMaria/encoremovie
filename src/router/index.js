@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store/index";
-// import HomeView from "../views/HomeView.vue";
+import HomeView from "../views/HomeView.vue";
 import loginView from "@/components/Login/viewComp.vue";
 import registerView from "@/components/Signin/registerView.vue";
 // import homeSlider from "../components/homeSlider.vue";
@@ -27,6 +27,11 @@ const authGuard = {
 };
 
 const routes = [
+  {
+    path: "/home",
+    name: "home",
+    component: HomeView,
+  },
   {
     path: "/",
     name: "home",
