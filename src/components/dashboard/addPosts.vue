@@ -35,7 +35,7 @@
           >I will go back and add it</md-button
         >
         <md-button class="md-primary" @click="onConfirm"
-          >Yes i am sure</md-button
+          >Add it without content</md-button
         >
       </md-dialog-actions>
     </md-dialog>
@@ -61,7 +61,7 @@ export default {
   methods: {
     submitForm() {
       if (this.formdata.content === "") {
-        //show a dialog
+        this.dialog = true;
       } else {
         this.addPost();
       }
@@ -71,6 +71,13 @@ export default {
       await this.$store.dispatch("addPost", this.formdata);
       this.loadAnimation = false;
       this.isPosted = true;
+      this.formdata.title = "";
+      this.formdata.description = "";
+      this.formdata.content = "";
+      this.formdata.rating = "";
+      setTimeout(() => {
+        this.isPosted = false;
+      }, 3000);
       console.log("isPosted True");
     },
     onCancel() {
